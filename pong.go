@@ -9,6 +9,8 @@ func main() {
 
 	app := iris.Default()
 
+	app.Logger().SetLevel("warn")
+
 	app.Get("/ping/{param:string}", func(ctx iris.Context) {
 
 		param := ctx.Params().Get("param")

@@ -4,34 +4,53 @@ A simple http echo server written in golang based on https://github.com/kataras/
 
 
 ## Build
+default settings
+```
+$ go build pong.go
+```
 
-`$ go build pong.go`
-
+small binary
+```
+$ GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" pong.go
+$ upx --ultra-brute ./pong
+```
 
 ## Run locally
 
 run pong server on default port 80
-`$ ./pong`
+```
+$ ./pong
+```
 
 specify custom port number via env var
-`$ PONG_LISTENING_ADDRESS="0.0.0.0:7654" ./pong`
+```
+$ PONG_LISTENING_ADDRESS="0.0.0.0:7654" ./pong
+```
 
 or via command line arg (overrides env var)
-`$ ./pong :8181`
+```
+$ ./pong :8181
+```
 
 
 ## Build docker
 
-`$ docker build -t ludenus/pong:0.0.1 .`
+```
+$ docker build -t ludenus/pong:0.0.1 .
+```
 
 
 ## Run docker
 
 directly
-`$ docker run -ti --rm --name pong ludenus/pong:0.0.1`
+```
+$ docker run -ti --rm --name pong ludenus/pong:0.0.1
+```
 
 or via docker-compose
-`$ docker-compose up`
+```
+$ docker-compose up
+```
 
 
 ## Usage
